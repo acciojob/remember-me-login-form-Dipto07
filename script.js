@@ -1,28 +1,36 @@
 //your JS code here. If required.
-let nameInput = document.getElementById('username');
-let passwordInput = document.getElementById("password");
-let checkInput = document.getElementById("checkbox");
-let sbutton = document.getElementById("submit");
-var name;
-var password;
-var check;
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const checkbox = document.getElementById('checkbox');
+    const existingBtn = document.getElementById('existing');
 
-nameInput.addEventListener('input', () => {
-    name = nameInput.value;
-});
+    const savedUsername = localStorage.getItem('username');
+    const savedPassword = localStorage.getItem('password');
 
-passwordInput.addEventListener('input', () => {
-    password = passwordInput.value;
-});
-
-checkInput.addEventListener("input", () => {
-      check = checkInput.checked;
-});
-
-sbutton.addEventListener('click', () => {
-    if(check){
-      localStorage.setItem('username',name);
-      localStorage.setItem('password',password);
+    if (savedUsername && savedPassword) {
+        existingBtn.style.display = 'block';
     }
-    alert(`Logged in as ${name}`);
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        if (checkbox.checked) {
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+        } else {
+            localStorage.removeItem('username');
+            localStorage.removeItem('password');
+        }
+
+        alert(`Logged in as ${username}`);
+    });
+
+    existingBtn.addEventListener('click', () => {
+        alert(`Logged in as ${savedUsername}`);
+    });
 });
