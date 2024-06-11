@@ -1,26 +1,2 @@
 /*  your css code here. If applicable */
-    body {
-            font-family: Arial, sans-serif;
-        }
-        .login-form {
-            max-width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .login-form input {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .login-form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .login-form button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-        }
+   

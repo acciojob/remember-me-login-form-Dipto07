@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const usernameInput = document.getElementById('username');
@@ -6,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.getElementById('checkbox');
     const existingBtn = document.getElementById('existing');
 
+    // Check if there are saved details in local storage
     const savedUsername = localStorage.getItem('username');
     const savedPassword = localStorage.getItem('password');
 
@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value;
 
         if (checkbox.checked) {
+            // Save details in local storage
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
         } else {
+            // Remove details from local storage
             localStorage.removeItem('username');
             localStorage.removeItem('password');
         }
